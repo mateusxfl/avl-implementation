@@ -184,11 +184,13 @@ void removerAVL(int x, NO** pt, int* altura){
                 if((*ptRaiz)->esq == NULL){
                     (*ptRaiz) = (*ptRaiz)->dir;
                     (*altura) = VERDADEIRO;
+                    free(aux);
                 }
                 else{
                     if((*ptRaiz)->dir == NULL){
                         (*ptRaiz) = (*ptRaiz)->esq;
                         (*altura) = VERDADEIRO;
+                        free(aux);
                     }
                     else{
                         NO* s= (*ptRaiz)->dir;
@@ -209,7 +211,6 @@ void removerAVL(int x, NO** pt, int* altura){
                         balancear(ptRaiz, 'D', altura);
                     }
                 }
-                free(aux);
             }
         }
     }
