@@ -139,7 +139,14 @@ void inserirAvl(int x, NO** pt, int* h){
     if (*pt == NULL) {
         iniciarNo(pt, x);
         (*h) = VERDADEIRO;
-    }else{        
+    }else{     
+
+        // Apesar da repetição de chaves ja ser tratada em realizacaoDosTestes na linha 80.
+        if (x == (*pt)->chave) { 
+            printf("\n\nESSE ELEMENTO JÁ EXISTE!\n"); //
+            return;
+        }
+
         if (x < (*pt)->chave){
             inserirAvl(x, &(*pt)->esq, h);
             if((*h) == VERDADEIRO){
